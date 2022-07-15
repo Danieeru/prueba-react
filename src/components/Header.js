@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+      <nav className="navbar navbar-expand-lg bg-light navbar-light container">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -40,7 +40,7 @@ const Header = () => {
         </div>
       </nav>
 
-      <Carousel variant="light">
+      <Carousel variant="light" className="container mt-3">
         <Carousel.Item>
           <img
             className="d-block w-100"

@@ -21,20 +21,20 @@ export const Buscar = () =>{
 
 
     return(
-        <div>
+        <div className="container">
             <h1 id="titulo-buscar">Buscar</h1>
-            <input placeholder="id" className="input-nombre" onChange={handlerInputText}/>
-            <button className="btn-guardar" onClick={guardarDatos}>
-                Guardar
-            </button>
+            <div className="d-flex justify-content-center">
+                <input placeholder="id" className="input-nombre" onChange={handlerInputText}/>
+                <button className="btn-guardar" onClick={guardarDatos}>Guardar</button>
+            </div>
             <div>
-                {(!!datosGuardados && <Listado/>)}
+                {(!!datosGuardados && <Listado id={inputText}/>)}
             </div>
 
         </div>
     );
 
-} 
+}
 
 export default Buscar;
 

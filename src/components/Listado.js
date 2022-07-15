@@ -2,7 +2,7 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 
 //leer datos con fetch api y renderizarlos en una tabla
-const Listado = () => {
+const Listado = ({id}) => {
     const [datos, setDatos] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
@@ -10,16 +10,22 @@ const Listado = () => {
     React.useEffect(() => {
         fetch('http://localhost:800/musica.php')
         .then(response => response.json())
-        .then(json => {
-            setDatos(json);
-            setLoading(false);
+        .then(json => { 
+            console.log(json);
+            console.log(id)
+            if (id !== "" && id !== undefined) {
+                setDatos(json.filter(item => item.id == id));
+            } else {
+                setDatos(json);
+            } setLoading(false);
+            console.log(datos);
         })
         .catch(error => {
             setError(error);
             setLoading(false);
         }
         );
-    }, []);
+    }, [id]);
     
     if (loading) {
         return <p>Loading...</p>;
